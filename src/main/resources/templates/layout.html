@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="[http://www.ultraq.net.nz/thymeleaf/layout](http://www.ultraq.net.nz/thymeleaf/layout)"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/layout.css}" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h2>Contacts</h2>
+    </header>
+
+    <div layout:fragment="content">
+        <p>Changing contents</p>
+    </div>
+
+    <footer>
+        <div id="footer">
+            <div id="copyright"> @Contacts</div>
+            <div id="name">Kris Norful</div>
+        </div>
+    </footer>
+</body>
+</html>
