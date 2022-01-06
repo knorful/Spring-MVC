@@ -10,23 +10,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 
-@RequestMapping("student1/api/v1/contacts")
 @Controller
 public class PersonController {
 
     @Autowired
     PersonService personService;
 
-    @GetMapping
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     String getContacts(Model model) {
         var contacts = personService.getContacts();
+        System.out.println("contacts ====> " + contacts);
         model.addAttribute("people", contacts);
         return "people";
     }
 
-    @PostMapping
-    public String addContact(@ModelAttribute Person person, Model model) {
-        return "soon will come";
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String addContact(@ModelAttribute("person") Person person, Model model) {
+        System.out.println("person ===> " + person.getName());
+        personService.addContact(person);
+        return "redirect:/";
     }
 
 }

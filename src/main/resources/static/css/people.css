@@ -1,7 +1,5 @@
-#footer {
-    display:flex;
+#addContactForm {
+    position: relative;
     width: 50%;
     margin: 0 auto;
-    text-align: center;
-    justify-content: space-around;
 }

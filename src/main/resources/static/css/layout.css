@@ -1,6 +1,6 @@
 footer {
     position: absolute;
-    bottom: 0;
+    bottom: -100px;
     width: 100%;
     color: white;
     background-color: #212529;
@@ -10,4 +10,12 @@ footer {
 .header {
     text-align: center;
 
+}
+
+#footer {
+    display:flex;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: space-around;
 }
