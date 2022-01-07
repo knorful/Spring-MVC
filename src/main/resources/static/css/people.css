@@ -1,5 +1,33 @@
-#addContactForm {
+body {
     position: relative;
+    height: 100vh;
+}
+
+table tr {
+    text-align: center;
+}
+
+#content {
+    padding-bottom: 2.5rem;
+}
+
+#addContactForm {
     width: 50%;
     margin: 0 auto;
+}
+
+#addContact h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#addContact hr {
+    width: 100px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#forms {
+    display: flex;
+    justify-content: center;
 }

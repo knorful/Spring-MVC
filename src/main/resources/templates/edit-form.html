@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Contact Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link th:href="@{/css/people.css}" rel="stylesheet">
+</head>
+<body>
+    <div layout:fragment="content" id="content">
+        <section id="addContact">
+            <h2>Edit Contact</h2>
+            <hr>
+
+            <form id="addContactForm" method="post" th:action="@{/edit/{id}(id=${person.id})}" th:object="${person}">
+                <div class="mb-1">
+                    <label for="firstName" class="form-label">FirstName</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" th:field="*{firstName}" required>
+                </div>
+                <div class="mb-1">
+                    <label for="lastName" class="form-label">LastName</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" th:field="*{lastName}" required>
+                </div>
+                <div class="mb-1">
+                    <label for="street1" class="form-label">Street1</label>
+                    <input type="text" class="form-control" id="street1" name="street1" th:field="*{street1}" required>
+                </div>
+                <div class="mb-1">
+                    <label for="street2" class="form-label">Street2</label>
+                    <input type="text" class="form-control" id="street2" name="street2" th:field="*{street2}" required>
+                </div>
+                <div class="mb-1">
+                    <label for="birthday" class="form-label">Birthday</label>
+                    <input type="date" class="form-control" id="birthday" name="birthday" th:field="*{birthday}" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Contact</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
