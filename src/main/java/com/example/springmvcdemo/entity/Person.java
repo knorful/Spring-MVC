@@ -17,6 +17,7 @@ public class Person {
     @SequenceGenerator(name = "student1_person", sequenceName = "student1_person", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student1_person")
     private int id;
+    private int userId;
     private String firstName;
     private String lastName;
     private String street1;

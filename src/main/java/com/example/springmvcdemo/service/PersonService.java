@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicReference;
@@ -17,8 +18,8 @@ public class PersonService {
     @Autowired
     PersonRepository personRepository;
 
-    public List<Person> getContacts() {
-        return personRepository.findAll();
+    public List<Person> getContacts(int userId) {
+        return personRepository.findAllById(Collections.singleton(userId));
     }
 
     public String addContact(Person person) {
