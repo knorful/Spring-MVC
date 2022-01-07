@@ -4,11 +4,15 @@
 
 footer {
     position: relative;
-    bottom: 0;
+    bottom: -100px;
     width: 100%;
     color: white;
     background-color: #212529;
     padding: 15px 0;
+}
+
+.views {
+    text-align: center;
 }
 
 .header {
@@ -21,6 +25,13 @@ footer {
     width: 50%;
     margin: 0 auto;
     text-align: center;
+    justify-content: space-around;
+}
+
+#user-info {
+    display: flex;
+    width: 50%;
+    margin-top: 70px;
     justify-content: space-around;
 }
 

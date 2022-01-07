@@ -20,9 +20,10 @@ public class UserService {
         return "Registered User";
     }
 
-    public Integer loginUser(int userId) {
-        var foundUser = userRepository.findById(userId);
+    public Integer loginUser(String email, String password) {
+        var foundUser = userRepository.findByEmailAndPassword(email, password);
         AtomicInteger loginId = new AtomicInteger();
+        System.out.println("here it is = " + foundUser);
         foundUser
                 .ifPresentOrElse(u -> loginId.set(u.getId()),
                         () -> {

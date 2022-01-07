@@ -17,6 +17,8 @@ public class PersonController {
     @Autowired
     PersonService personService;
 
+    private int loginId;
+
     @GetMapping
     String home() {
         return "home";
@@ -24,6 +26,7 @@ public class PersonController {
 
     @GetMapping(path = "contacts/{id}")
     String getContacts(@PathVariable("id") int userId, Model model) {
+        loginId = userId;
         var contacts = personService.getContacts(userId);
         model.addAttribute("people", contacts);
         return "contacts";
@@ -43,19 +46,19 @@ public class PersonController {
 
     @PostMapping(path = "add-contact")
     public String addContact(@ModelAttribute("person") Person person, Model model) {
-        personService.addContact(person);
-        return "redirect:/contacts";
+        personService.addContact(person, loginId);
+        return String.format("redirect:/contacts/%s", loginId);
     }
 
     @PostMapping(path = "/delete/{id}")
     public String deleteContact(@ModelAttribute("person") Person person, @PathVariable("id") int personId) {
         personService.deleteContact(personId);
-        return "redirect:/contacts";
+        return String.format("redirect:/contacts/%s",loginId);
     }
 
     @PostMapping(path = "/edit/{id}")
     public String submitEditForm(@PathVariable("id") int personId, Model model, Person person) {
-        personService.editContactSubmit(person);
-        return "redirect:/contacts";
+        personService.editContactSubmit(person, loginId);
+        return String.format("redirect:/contacts/%s", loginId);
     }
 }

@@ -26,7 +26,8 @@ public class LoginController {
 
     @PostMapping
     public String login(@ModelAttribute User user) {
-        var foundUserId = userService.loginUser(user.getId());
+        System.out.println("user = " + user.getEmail());
+        var foundUserId = userService.loginUser(user.getEmail(), user.getPassword());
         return String.format("redirect:/contacts/%s", foundUserId);
     }
 

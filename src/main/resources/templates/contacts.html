@@ -35,7 +35,7 @@
             <td>N/A</td>
             <td>N/A</td>
         </tr>
-        <tr th:each="person: ${people}">
+        <tr th:each="person: ${people}" style="cursor: pointer" th:onclick="'javascript:rowClicked(\'' + ${person.id} + '\');'">
             <td th:text="${person.firstName}"></td>
             <td th:text="${person.lastName}"></td>
             <td th:text="${person.street1}"></td>
